@@ -1,0 +1,20 @@
+package edu.kh.todo.model.service;
+
+import java.sql.Connection;
+import java.util.List;
+
+import static edu.kh.todo.common.JDBCTemplate.*;
+import edu.kh.todo.model.dto.Todo;
+
+public class TodoService {
+
+	public List<Todo> selectAll(int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		
+		
+		return null;
+	}
+
+}

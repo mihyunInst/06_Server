@@ -1,0 +1,52 @@
+package edu.kh.member.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/signup")
+public class SignupController extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.getRequestDispatcher("/WEB-INF/views/signup.jsp").forward(req, resp);
+		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
+			
+			req.setCharacterEncoding("UTF-8");
+			
+			String inputPw = req.getParameter("inputPw");
+			String inputPw2 = req.getParameter("inputPw2");
+			
+			if(inputPw.equals("") || inputPw.equals("")) {
+				
+				req.setAttribute("msg", "비밀번호가 비어있을 수 없습니다");
+				resp.sendRedirect(req.getHeader("referer"));
+				
+			}else if(!inputPw.equals(inputPw2)) {
+				
+				req.setAttribute("msg", "비밀번호가 일치하지 않습니다");
+				resp.sendRedirect(req.getHeader("referer"));
+				
+			} else {
+				
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+}

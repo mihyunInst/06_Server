@@ -1,0 +1,12 @@
+package edu.kh.member.model.service;
+
+import edu.kh.member.model.dto.Member;
+
+public class MemberService {
+
+	public Member login(String inputId, String inputPw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

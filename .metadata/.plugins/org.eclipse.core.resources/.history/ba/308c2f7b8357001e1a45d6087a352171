@@ -1,0 +1,14 @@
+package edu.kh.member.model.dao;
+
+import java.sql.Connection;
+
+import edu.kh.member.model.dto.Member;
+
+public class MemberDAO {
+
+	public Member login(Connection conn, String inputId, String inputPw) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

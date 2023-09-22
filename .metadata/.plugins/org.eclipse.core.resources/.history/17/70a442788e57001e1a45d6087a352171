@@ -1,0 +1,53 @@
+package edu.kh.todo.model.service;
+
+import java.sql.Connection;
+import java.util.List;
+
+import static edu.kh.todo.common.JDBCTemplate.*;
+
+import edu.kh.member.model.dto.Member;
+import edu.kh.todo.model.dao.TodoDAO;
+import edu.kh.todo.model.dto.Todo;
+
+public class TodoService {
+
+	private TodoDAO dao = new TodoDAO();
+	
+	/** 전체 조회하기
+	 * @param memberNo
+	 * @return todoList
+	 * @throws Exception
+	 */
+	public List<Todo> selectAll(int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Todo> todoList = dao.selectAll(conn, memberNo);
+		
+		close(conn);
+		
+		return todoList;
+	}
+
+	/** 등록하기
+	 * @param title
+	 * @param memo
+	 * @param memberNo 
+	 * @return
+	 */
+	public int insert(String title, String memo, int memberNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insert(conn, title, memo);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+		
+	}
+
+}

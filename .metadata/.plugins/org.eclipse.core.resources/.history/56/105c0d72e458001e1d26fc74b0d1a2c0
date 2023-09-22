@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+	
+	<link rel="stylesheet" href="/resources/css/main.css">
+</head>
+<body>
+	<main>
+		<h1>회원가입</h1>
+		
+		<section class="signup-section">
+			<form action="/signup" method="post">
+				<p>아이디</p>
+				<input type="text" name="inputId">
+				
+				<p>비밀번호</p>
+				<input type="password" name="inputPw">
+				
+				<p>비밀번호 확인</p>
+				<input type="password" name="inputPw">
+				
+				<p>닉네임</p>
+				<input type="text" name="inputName">
+				<br>
+				
+				<button>가입하기</button>
+				
+			</form>
+		</section>
+	</main>
+</body>
+</html>
